@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Ledger, Income, Expenses, Assets, Liabilities, Opportunities
+from .models import Ledger, Income, Expense, Asset, Liability, Opportunity
 
 class LedgerSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""

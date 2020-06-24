@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'rest_framework',
 
     # Third-party
     'allauth',
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
     # Local
     'users',
     'pages',
+    'api',
 ]
 
 # MIDDLEWARE

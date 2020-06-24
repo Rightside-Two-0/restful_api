@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .serializers import LedgerSerializer
-from .models import Ledger
+from .serializers import LedgerSerializer, IncomeSerializer, ExpenseSerializer, AssetSerializer, LiabilitySerializer, OpportunitySerializer
+from .models import Ledger, Income, Expense, Asset, Liability, Opportunity
 
 class CreateViewIncome(generics.ListCreateAPIView):
     """This class defines the create behavior of our rest api."""
@@ -71,7 +71,7 @@ class DetailsViewOpportunity(generics.RetrieveUpdateDestroyAPIView):
     """This class handles the http GET, PUT and DELETE requests."""
     queryset = Opportunity.objects.all()
     serializer_class = OpportunitySerializer
-#~~~~~~~~~~~~~~~~~~^^^done^^~~~~~~~~~~~~~~~~~~~~~~~~
+
 class CreateViewLedger(generics.ListCreateAPIView):
     """This class defines the create behavior of our rest api."""
     queryset = Ledger.objects.all()
@@ -83,5 +83,6 @@ class CreateViewLedger(generics.ListCreateAPIView):
 
 class DetailsViewLedger(generics.RetrieveUpdateDestroyAPIView):
     """This class handles the http GET, PUT and DELETE requests."""
-    queryset = Opportunity.objects.all()
+    queryset = Ledger.objects.all()
     serializer_class = LedgerSerializer
+#~~~~~~~~~~~~~~~~~~^^^done^^~~~~~~~~~~~~~~~~~~~~~~~~

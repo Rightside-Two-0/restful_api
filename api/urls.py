@@ -6,7 +6,7 @@ from .views import CreateViewExpense, DetailsViewExpense
 from .views import CreateViewAsset, DetailsViewAsset
 from .views import CreateViewLiability, DetailsViewLiability
 from .views import CreateViewOpportunity, DetailsViewOpportunity
-
+from .views import CreateViewLedger, DetailsViewLedger
 
 urlpatterns = [
     path('income/', CreateViewIncome.as_view(), name='new_income'),
@@ -18,7 +18,7 @@ urlpatterns = [
     path('liability/', CreateViewLiability.as_view(), name='new_liability'),
     path('liability/<int:id>', DetailsViewAsset.as_view(), name='details_liability'),
     path('ledger/', CreateViewLedger.as_view(), name='create_view'),
-    path('ledger/<int:id>', , name='details_view'),
+    path('ledger/<int:id>', DetailsViewLedger.as_view(), name='details_view'),
     path('opportunity/', CreateViewOpportunity.as_view(), name='new_opp'),
     path('opportunity/<int:id>', DetailsViewOpportunity.as_view(), name='details_opp'),
 ]
