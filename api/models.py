@@ -12,13 +12,14 @@ class Ledger(models.Model):
         ('Bank CDs','Bank CDs'),
         ('Real Estate','Real Estate'),
         ('Business','Business'),
+        ('Salary/Wages','Salary/Wages'),
     )
     expense_accounts = (
         ('Mortgage/Rent', 'Mortgage/Rent'),
         ('Utilities', 'Utilities'),
-        ('Insurances','Insurances'),
+        ('Insurance','Insurance'),
         ('Food/Groceries','Food/Groceries'),
-        ('Vehicle(s)','Vehicle(s)'),
+        ('Vehicle','Vehicle'),
         ('Health/Wellness','Health/Wellness'),
         ('Entertainment','Entertainment'),
         ('Clothing','Clothing'),
@@ -27,6 +28,7 @@ class Ledger(models.Model):
         ('Taxes','Taxes'),
         ('Fees/Fines','Fees/Fines'),
         ('Other','Other'),
+        ('RE Debt Service','RE Debt Service'),
     )
     from_account = models.CharField(max_length=30, choices=credit_accounts)
     to_account = models.CharField(max_length=30, choices=expense_accounts)
@@ -35,7 +37,6 @@ class Ledger(models.Model):
 
     def __str__(self):
         return self.notes
-
 class Income(models.Model):
     sources = (
         ('Salary/Wages','Salary/Wages'),
@@ -49,14 +50,13 @@ class Income(models.Model):
     notes = models.CharField(max_length=100)
     def __str__(self):
         return self.notes
-
 class Expense(models.Model):
     sources = (
         ('Mortgage/Rent', 'Mortgage/Rent'),
         ('Utilities', 'Utilities'),
-        ('Insurances','Insurances'),
+        ('Insurance','Insurance'),
         ('Food/Groceries','Food/Groceries'),
-        ('Vehicle(s)','Vehicle(s)'),
+        ('Vehicle','Vehicle'),
         ('Health/Wellness','Health/Wellness'),
         ('Entertainment','Entertainment'),
         ('Clothing','Clothing'),
@@ -65,13 +65,15 @@ class Expense(models.Model):
         ('Taxes','Taxes'),
         ('Fees/Fines','Fees/Fines'),
         ('Other','Other'),
+        ('RE Debt Service','RE Debt Service'),
     )
     source = models.CharField(max_length=60, choices=sources)
     amount = models.CharField(max_length=30)
     def __str__(self):
-        return 'Working on this one...'
+        return self.source
 class Asset(models.Model):
     sources = (
+        ('Bitcoin/Crypto','Bitcoin/Crypto'),
         ('Savings','Savings'),
         ('Checking','Checking'),
         ('Bitcoin/Crypto','Bitcoin/Crypto'),
@@ -80,6 +82,7 @@ class Asset(models.Model):
         ('Bank CDs','Bank CDs'),
         ('Real Estate','Real Estate'),
         ('Business','Business'),#~~~mind~~your~~own~~business~~
+        ('Salary/Wages','Salary/Wages'),
     )
     source = models.CharField(max_length=60, choices=sources)
     down = models.CharField(max_length=30)
@@ -87,7 +90,6 @@ class Asset(models.Model):
     notes = models.CharField(max_length=100)
     def __str__(self):
         return self.notes
-
 class Liability(models.Model):
     sources = (
         ('Home Mortgage','Home Mortgage'),
@@ -104,13 +106,15 @@ class Liability(models.Model):
     notes = models.CharField(max_length=100)
     def __str__(self):
         return self.notes
-
 class Opportunity(models.Model):
     heading = models.CharField(max_length=30)
     description = models.CharField(max_length=256)
+    url = models.CharField(max_length=256, default='')
     cost = models.CharField(max_length=30)
     down = models.CharField(max_length=30)
     mortgage = models.CharField(max_length=30)
     cash_flow = models.CharField(max_length=30)
+    coc = models.CharField(max_length=13, default='')
+    irr = models.CharField(max_length=13, default='')
     def __str__(self):
         return self.description
