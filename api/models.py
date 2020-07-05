@@ -107,14 +107,35 @@ class Liability(models.Model):
     def __str__(self):
         return self.notes
 class Opportunity(models.Model):
-    heading = models.CharField(max_length=30)
-    description = models.CharField(max_length=256)
+    heading = models.CharField(max_length=30, default='')
+    description = models.CharField(max_length=256, default='')
     url = models.CharField(max_length=256, default='')
-    cost = models.CharField(max_length=30)
-    down = models.CharField(max_length=30)
-    mortgage = models.CharField(max_length=30)
-    cash_flow = models.CharField(max_length=30)
+    cost = models.CharField(max_length=30, default='')
+    down = models.CharField(max_length=30, default='')
+    mortgage = models.CharField(max_length=30, default='')
+    cash_flow = models.CharField(max_length=30, default='')
     coc = models.CharField(max_length=13, default='')
     irr = models.CharField(max_length=13, default='')
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+    #~~~~~~~incomes~~~~~~~~~~~~~~~~~~~~~~~~>
+    ask = models.CharField(max_length=30, default='')
+    sqft = models.CharField(max_length=30, default='')
+    units = models.CharField(max_length=30, default='')
+    ave_rent = models.CharField(max_length=30, default='')
+    vacancy_rate = models.CharField(max_length=30, default='')
+    other_income = models.CharField(max_length=30, default='')
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+    #~~~~~~~expenses~~~~~~~~~~~~~~~~~~~~~~~~>
+    repairs = models.CharField(max_length=30, default='')
+    management = models.CharField(max_length=30, default='')
+    taxes = models.CharField(max_length=30, default='')
+    insurance = models.CharField(max_length=30, default='')
+    wages = models.CharField(max_length=30, default='')
+    utilities = models.CharField(max_length=30, default='')
+    gen_admin = models.CharField(max_length=30, default='')
+    professional_fees = models.CharField(max_length=30, default='')
+    advertising = models.CharField(max_length=30, default='')
+    cap_x = models.CharField(max_length=30, default='')
+    other = models.CharField(max_length=30, default='')
     def __str__(self):
         return self.description
