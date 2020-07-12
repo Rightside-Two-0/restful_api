@@ -3,7 +3,6 @@ from .models import Ledger, Income, Expense, Asset, Liability, Opportunity
 
 class LedgerSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
-
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Ledger
@@ -11,7 +10,6 @@ class LedgerSerializer(serializers.ModelSerializer):
 
 class IncomeSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
-
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Income
@@ -19,14 +17,12 @@ class IncomeSerializer(serializers.ModelSerializer):
 
 class ExpenseSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
-
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Expense
         fields = '__all__'
 class AssetSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
-
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Asset
@@ -34,7 +30,6 @@ class AssetSerializer(serializers.ModelSerializer):
 
 class LiabilitySerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
-
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Liability
@@ -42,7 +37,6 @@ class LiabilitySerializer(serializers.ModelSerializer):
 
 class OpportunitySerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
-
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Opportunity

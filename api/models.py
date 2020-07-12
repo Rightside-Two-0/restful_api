@@ -138,4 +138,4 @@ class Opportunity(models.Model):
     cap_x = models.CharField(max_length=30, default='')
     other = models.CharField(max_length=30, default='')
     def __str__(self):
-        return self.description
+        return self.heading
